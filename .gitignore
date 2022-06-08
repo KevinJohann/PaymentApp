@@ -1,0 +1,6 @@
+.DS_Store
+.orig
+Pods/
+Example/Pods/
+Example/paymentApp.xcworkspace
+

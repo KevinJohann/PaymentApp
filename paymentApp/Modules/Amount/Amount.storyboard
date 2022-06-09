@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iIG-Rk-DhD">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Amount View Controller-->
+        <scene sceneID="MV2-5f-f1s">
+            <objects>
+                <viewController id="iIG-Rk-DhD" customClass="AmountViewController" customModule="paymentApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N7N-xn-Wp5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="C6Y-kW-Pa0" userLabel="mainContentStackView">
+                                <rect key="frame" x="0.0" y="268.5" width="375" height="130.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese el monto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0r-UF-WVp">
+                                        <rect key="frame" x="32" y="0.0" width="311" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FqW-sG-4lb" userLabel="amountTextField" customClass="AllowedCharsTextField" customModule="paymentApp" customModuleProvider="target">
+                                        <rect key="frame" x="32" y="36.5" width="311" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="F5e-xQ-Ipf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="allowedChars" value="1234567890"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pdC-lf-gba" userLabel="buttonsStackView">
+                                        <rect key="frame" x="32" y="100.5" width="311" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWE-rQ-GsV" userLabel="backButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="147.5" height="30"/>
+                                                <state key="normal" title="Limpiar"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAs-Ny-5oP" userLabel="continueButton">
+                                                <rect key="frame" x="163.5" y="0.0" width="147.5" height="30"/>
+                                                <state key="normal" title="Continuar"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="0.0" left="32" bottom="0.0" right="32"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ord-RF-Sy8"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="C6Y-kW-Pa0" firstAttribute="centerY" secondItem="N7N-xn-Wp5" secondAttribute="centerY" id="FEE-6L-3hM"/>
+                            <constraint firstItem="C6Y-kW-Pa0" firstAttribute="centerX" secondItem="N7N-xn-Wp5" secondAttribute="centerX" id="O0u-8o-fkL"/>
+                            <constraint firstItem="C6Y-kW-Pa0" firstAttribute="leading" secondItem="Ord-RF-Sy8" secondAttribute="leading" id="Q5f-nR-bTF"/>
+                            <constraint firstItem="Ord-RF-Sy8" firstAttribute="trailing" secondItem="C6Y-kW-Pa0" secondAttribute="trailing" id="dJ8-LO-cnD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="amountTextField" destination="FqW-sG-4lb" id="JhP-ad-gDE"/>
+                        <outlet property="backButton" destination="fWE-rQ-GsV" id="ToQ-za-pC4"/>
+                        <outlet property="continueButton" destination="wAs-Ny-5oP" id="kUB-Mz-n6p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lUx-Sv-e1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-178" y="49"/>
+        </scene>
+    </scenes>
+</document>

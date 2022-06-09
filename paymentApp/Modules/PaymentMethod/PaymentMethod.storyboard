@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iIG-Rk-DhD">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Payment Method View Controller-->
+        <scene sceneID="MV2-5f-f1s">
+            <objects>
+                <viewController id="iIG-Rk-DhD" customClass="PaymentMethodViewController" customModule="paymentApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N7N-xn-Wp5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="EtU-yB-qNR">
+                                <rect key="frame" x="0.0" y="151" width="375" height="365"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione un método de págo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWc-Je-QtB">
+                                        <rect key="frame" x="52" y="0.0" width="271" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CbZ-HY-vDd">
+                                        <rect key="frame" x="56.5" y="56" width="262.5" height="167"/>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y3f-vw-sQz" userLabel="pickerTextField" customClass="CustomUITextField" customModule="paymentApp" customModuleProvider="target">
+                                        <rect key="frame" x="56.5" y="255" width="262.5" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="EJy-P7-fy5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agC-00-HBW">
+                                        <rect key="frame" x="112.5" y="335" width="150" height="30"/>
+                                        <state key="normal" title="Continuar"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ord-RF-Sy8"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Y3f-vw-sQz" firstAttribute="width" secondItem="N7N-xn-Wp5" secondAttribute="width" multiplier="0.7" id="5pp-54-z6c"/>
+                            <constraint firstItem="EtU-yB-qNR" firstAttribute="leading" secondItem="Ord-RF-Sy8" secondAttribute="leading" id="Rs8-0C-5tw"/>
+                            <constraint firstItem="CbZ-HY-vDd" firstAttribute="width" secondItem="N7N-xn-Wp5" secondAttribute="width" multiplier="0.7" id="TjS-GG-utt"/>
+                            <constraint firstItem="agC-00-HBW" firstAttribute="width" secondItem="N7N-xn-Wp5" secondAttribute="width" multiplier="0.4" id="o3r-tC-QmP"/>
+                            <constraint firstItem="CbZ-HY-vDd" firstAttribute="height" secondItem="N7N-xn-Wp5" secondAttribute="height" multiplier="0.25" id="quD-rb-8G0"/>
+                            <constraint firstItem="Ord-RF-Sy8" firstAttribute="trailing" secondItem="EtU-yB-qNR" secondAttribute="trailing" id="uyq-wr-ZpR"/>
+                            <constraint firstItem="EtU-yB-qNR" firstAttribute="centerX" secondItem="N7N-xn-Wp5" secondAttribute="centerX" id="wSd-it-Nye"/>
+                            <constraint firstItem="EtU-yB-qNR" firstAttribute="centerY" secondItem="N7N-xn-Wp5" secondAttribute="centerY" id="x38-Ro-oMn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="methodImageView" destination="CbZ-HY-vDd" id="gn2-Kd-mJx"/>
+                        <outlet property="pickerTextField" destination="Y3f-vw-sQz" id="5Wg-BK-SrG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lUx-Sv-e1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-178" y="49"/>
+        </scene>
+    </scenes>
+</document>

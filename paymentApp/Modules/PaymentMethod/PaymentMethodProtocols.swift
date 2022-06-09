@@ -33,4 +33,5 @@ protocol PaymentMethodPresenterProtocol: AnyObject {
     func paymentMethodsCount() -> Int
     func paymentMethodName(by position: Int) -> String
     func paymentMethodUrlImage(by position: Int) -> String
+    func onContinueButtonPressed()
 }

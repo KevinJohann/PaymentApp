@@ -16,27 +16,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="EtU-yB-qNR">
-                                <rect key="frame" x="0.0" y="151" width="375" height="365"/>
+                                <rect key="frame" x="0.0" y="85.5" width="375" height="496"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione un método de págo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWc-Je-QtB">
-                                        <rect key="frame" x="52" y="0.0" width="271" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione tipo de págo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2j-12-zty">
+                                        <rect key="frame" x="96" y="0.0" width="183" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tipo de pago" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pAP-nG-2ut">
+                                        <rect key="frame" x="56.5" y="52.5" width="262.5" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="YNN-zT-2sF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione medio de págo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWc-Je-QtB">
+                                        <rect key="frame" x="87" y="124.5" width="201" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CbZ-HY-vDd">
-                                        <rect key="frame" x="56.5" y="56" width="262.5" height="167"/>
+                                        <rect key="frame" x="56.5" y="177" width="262.5" height="167"/>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y3f-vw-sQz" userLabel="pickerTextField" customClass="CustomUITextField" customModule="paymentApp" customModuleProvider="target">
-                                        <rect key="frame" x="56.5" y="255" width="262.5" height="48"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Medio de pago" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y3f-vw-sQz" userLabel="pickerTextField" customClass="CustomUITextField" customModule="paymentApp" customModuleProvider="target">
+                                        <rect key="frame" x="56.5" y="376" width="262.5" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="EJy-P7-fy5"/>
+                                            <constraint firstAttribute="height" constant="40" id="EJy-P7-fy5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agC-00-HBW">
-                                        <rect key="frame" x="112.5" y="335" width="150" height="30"/>
+                                        <rect key="frame" x="112.5" y="448" width="150" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="7dA-Hz-ymN"/>
+                                        </constraints>
                                         <state key="normal" title="Continuar"/>
                                     </button>
                                 </subviews>
@@ -50,13 +67,16 @@
                             <constraint firstItem="CbZ-HY-vDd" firstAttribute="width" secondItem="N7N-xn-Wp5" secondAttribute="width" multiplier="0.7" id="TjS-GG-utt"/>
                             <constraint firstItem="agC-00-HBW" firstAttribute="width" secondItem="N7N-xn-Wp5" secondAttribute="width" multiplier="0.4" id="o3r-tC-QmP"/>
                             <constraint firstItem="CbZ-HY-vDd" firstAttribute="height" secondItem="N7N-xn-Wp5" secondAttribute="height" multiplier="0.25" id="quD-rb-8G0"/>
+                            <constraint firstItem="pAP-nG-2ut" firstAttribute="width" secondItem="N7N-xn-Wp5" secondAttribute="width" multiplier="0.7" id="teJ-rc-hBZ"/>
                             <constraint firstItem="Ord-RF-Sy8" firstAttribute="trailing" secondItem="EtU-yB-qNR" secondAttribute="trailing" id="uyq-wr-ZpR"/>
                             <constraint firstItem="EtU-yB-qNR" firstAttribute="centerX" secondItem="N7N-xn-Wp5" secondAttribute="centerX" id="wSd-it-Nye"/>
                             <constraint firstItem="EtU-yB-qNR" firstAttribute="centerY" secondItem="N7N-xn-Wp5" secondAttribute="centerY" id="x38-Ro-oMn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="continueButton" destination="agC-00-HBW" id="Z2s-zi-Nkw"/>
                         <outlet property="methodImageView" destination="CbZ-HY-vDd" id="gn2-Kd-mJx"/>
+                        <outlet property="paymentTypeTextField" destination="pAP-nG-2ut" id="liM-08-zsx"/>
                         <outlet property="pickerTextField" destination="Y3f-vw-sQz" id="5Wg-BK-SrG"/>
                     </connections>
                 </viewController>

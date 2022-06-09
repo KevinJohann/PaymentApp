@@ -11,6 +11,7 @@ import UIKit
 // MARK: - PaymentMethodViewController
 final class PaymentMethodViewController: UIViewController {
     @IBOutlet weak var pickerTextField: UITextField!
+    @IBOutlet weak var paymentTypeTextField: UITextField!
     @IBOutlet weak var methodImageView: UIImageView! {
         didSet {
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
@@ -18,7 +19,12 @@ final class PaymentMethodViewController: UIViewController {
             methodImageView.addGestureRecognizer(tapGestureRecognizer)
         }
     }
-
+    @IBOutlet weak var continueButton: UIButton! {
+        didSet {
+            continueButton.addTarget(self, action: #selector(onContinueButtonPressed(sender:)), for: .touchUpInside)
+        }
+    }
+    
     private var pickerView = UIPickerView()
     var presenter: PaymentMethodPresenterProtocol?
 
@@ -34,6 +40,10 @@ final class PaymentMethodViewController: UIViewController {
 extension PaymentMethodViewController {
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         pickerTextField.select(nil)
+    }
+
+    @objc func onContinueButtonPressed(sender: UIButton) {
+        presenter?.onContinueButtonPressed()
     }
 }
 

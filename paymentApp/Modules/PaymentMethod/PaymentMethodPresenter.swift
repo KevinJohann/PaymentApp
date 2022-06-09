@@ -49,6 +49,10 @@ extension PaymentMethodPresenter: PaymentMethodPresenterProtocol {
         }
         return paymentTypes[position].secureThumbnail
     }
+
+    func onContinueButtonPressed() {
+        
+    }
 }
 
 // MARK: - PaymentMethodInteractorOutputProtocol

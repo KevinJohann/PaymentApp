@@ -7,6 +7,10 @@
 
 import UIKit
 
+class TransactionData {
+    var
+}
+
 // MARK: - Coordinator
 protocol Coordinator: AnyObject {
     func start()

@@ -6,6 +6,8 @@
 //  
 //
 
+import Foundation
+
 // MARK: - SplashPresenter
 final class SplashPresenter {
     weak var view: SplashViewProtocol?
@@ -14,5 +16,12 @@ final class SplashPresenter {
 
 // MARK: - SplashPresenterProtocol
 extension SplashPresenter: SplashPresenterProtocol {
-    func onViewDidAppear() { delegate?.goToAmountRequested() }
+    func onViewWillAppear() {
+        DispatchQueue.main.asyncAfter(
+            deadline: .now() + 2,
+            execute: {
+                self.delegate?.goToAmountRequested()
+            }
+        )
+    }
 }

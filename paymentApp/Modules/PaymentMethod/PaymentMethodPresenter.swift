@@ -112,9 +112,7 @@ extension PaymentMethodPresenter: PaymentMethodPresenterProtocol {
         updatedTransactionData.paymentType = cardName
         updatedTransactionData.paymentId = paymentType.id
 
-//        delegate.goToBankSelection(with: updatedTransactionData)
-        print(updatedTransactionData)
-        print("🛑 ----------------- 🛑")
+        delegate?.goToBankSelection(with: updatedTransactionData)
     }
 }
 

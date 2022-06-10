@@ -45,6 +45,10 @@ extension AmountViewController {
         super.viewDidLoad()
         presenter?.onViewDidLoad()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
 }
 
 // MARK: - Targets

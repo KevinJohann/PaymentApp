@@ -13,5 +13,5 @@ protocol SplashViewProtocol: AnyObject {}
 
 // MARK: - Presenter
 protocol SplashPresenterProtocol: AnyObject {
-    func onViewDidAppear()
+    func onViewWillAppear()
 }

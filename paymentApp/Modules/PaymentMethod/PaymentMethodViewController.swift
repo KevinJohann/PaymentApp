@@ -25,8 +25,8 @@ final class PaymentMethodViewController: UIViewController {
         }
     }
 
-    private var typePickerView = UIPickerView()
-    private var pickerView = UIPickerView()
+    private var paymentTypePickerView = UIPickerView()
+    private var paymentMethodPickerView = UIPickerView()
     var presenter: PaymentMethodPresenterProtocol?
 
     lazy var activityIndicator: UIActivityIndicatorView = {
@@ -52,16 +52,17 @@ extension PaymentMethodViewController {
 extension PaymentMethodViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
 
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        pickerView.tag = 1
-        paymentMethodTextField.inputView = pickerView
+        paymentMethodPickerView.delegate = self
+        paymentMethodPickerView.dataSource = self
+        paymentMethodPickerView.tag = 1
+        paymentMethodTextField.inputView = paymentMethodPickerView
 
-        typePickerView.delegate = self
-        typePickerView.dataSource = self
-        typePickerView.tag = 2
-        paymentTypeTextField.inputView = typePickerView
+        paymentTypePickerView.delegate = self
+        paymentTypePickerView.dataSource = self
+        paymentTypePickerView.tag = 2
+        paymentTypeTextField.inputView = paymentTypePickerView
         
         presenter?.onViewDidLoad()
     }
@@ -138,12 +139,10 @@ extension PaymentMethodViewController: UIPickerViewDataSource {
             paymentTypeTextField.text = presenter?.paymentTypeId(by: row)
             paymentMethodTextField.text = presenter?.paymentMethodName(by: 0, and: paymentTypeTextField.text ?? "")
             setPaymentMethodImage(with: presenter?.paymentMethodUrlImage(by: 0, and: paymentTypeTextField.text ?? "") ?? "")
-            self.pickerView.selectRow(0, inComponent: 0, animated: false)
+            self.paymentMethodPickerView.selectRow(0, inComponent: 0, animated: false)
             paymentTypeTextField.resignFirstResponder()
 
         default: return
         }
     }
-    
-    
 }

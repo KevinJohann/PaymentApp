@@ -99,7 +99,12 @@ extension AppCoordinator: PaymentMethodDelegate {
     }
 
     func goToBankSelection(with transactionData: TransactionDataProtocol) {
-        let vc = SplashWireframe.createModule(with: self)
+        let vc = BankSelectionWireframe.createModule(with: self, transactionData: transactionData)
         navigationController.pushViewController(vc, animated: true)
     }
+}
+
+// MARK: - BankSelectionDelegate
+extension AppCoordinator: BankSelectionDelegate {
+
 }

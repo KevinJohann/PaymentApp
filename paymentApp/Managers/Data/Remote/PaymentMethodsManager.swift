@@ -1,5 +1,5 @@
 //
-//  PaymentMethods.swift
+//  PaymentMethodsManager.swift
 //  paymentApp
 //
 //  Created by Kevin on 08-06-22.

@@ -7,8 +7,24 @@
 
 import UIKit
 
-class TransactionData {
-    var
+// MARK: - TransactionDataProtocol
+protocol TransactionDataProtocol {
+    /// Initial view, typed user amount
+    var amount: String? { set get }
+    /// Selected payment card id
+    var paymentId: String? { set get }
+    /// Selected payment type
+    var paymentType: String? { set get }
+    /// Selected payment
+    var payment: String? { set get }
+}
+
+// MARK: - TransactionData
+class TransactionData: TransactionDataProtocol {
+    var amount: String?
+    var paymentId: String?
+    var paymentType: String?
+    var payment: String?
 }
 
 // MARK: - Coordinator
@@ -22,7 +38,8 @@ protocol AppCoordinatorProtocol: Coordinator {}
 // MARK: - AppCoordinator
 final class AppCoordinator {
     let navigationController: UINavigationController
-    
+    private var transactionData: TransactionDataProtocol?
+
     required init(navigationController: UINavigationController) {
         navigationController.isModalInPresentation = true
         navigationController.modalPresentationStyle = .fullScreen
@@ -51,9 +68,12 @@ extension AppCoordinator: SplashDelegate {
 
 // MARK: - AmountDelegate
 extension AppCoordinator: AmountDelegate {
-    func goToPaymentMethod(with amountData: String) {
-        print(amountData)
-        let vc = PaymentMethodWireframe.createModule(with: self)
+    func goToPaymentMethod(with data: TransactionDataProtocol) {
+        self.transactionData = data
+        guard let transactionData = transactionData else {
+            return
+        }
+        let vc = PaymentMethodWireframe.createModule(with: self, transactionData: transactionData)
         navigationController.pushViewController(vc, animated: true)
     }
 
@@ -76,5 +96,10 @@ extension AppCoordinator: PaymentMethodDelegate {
                 self.navigationController.popToRootViewController(animated: true)
             }
         )
+    }
+
+    func goToBankSelection(with transactionData: TransactionDataProtocol) {
+        let vc = SplashWireframe.createModule(with: self)
+        navigationController.pushViewController(vc, animated: true)
     }
 }

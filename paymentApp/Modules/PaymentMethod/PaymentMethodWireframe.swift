@@ -11,15 +11,16 @@ import UIKit
 // MARK: - PaymentMethodDelegate
 protocol PaymentMethodDelegate: AnyObject {
     func onErrorView(with message: String)
+    func goToBankSelection(with transactionData: TransactionDataProtocol)
 }
 
 // MARK: - PaymentMethodWireframe
 enum PaymentMethodWireframe {
-    static func createModule(with delegate: PaymentMethodDelegate) -> UIViewController {
+    static func createModule(with delegate: PaymentMethodDelegate, transactionData: TransactionDataProtocol) -> UIViewController {
         let paymentMethodsManager = PaymentMethodsManager()
 
         let view = PaymentMethodViewController.storyboardViewController()
-        let presenter = PaymentMethodPresenter()
+        let presenter = PaymentMethodPresenter(transactionData: transactionData)
         let interactor = PaymentMethodInteractor(paymentMethodsManager: paymentMethodsManager)
 
         view.presenter = presenter

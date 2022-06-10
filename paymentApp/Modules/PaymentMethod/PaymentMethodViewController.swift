@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - PaymentMethodViewController
 final class PaymentMethodViewController: UIViewController {
-    @IBOutlet weak var pickerTextField: UITextField!
+    @IBOutlet weak var paymentMethodTextField: UITextField!
     @IBOutlet weak var paymentTypeTextField: UITextField!
     @IBOutlet weak var methodImageView: UIImageView! {
         didSet {
@@ -24,7 +24,8 @@ final class PaymentMethodViewController: UIViewController {
             continueButton.addTarget(self, action: #selector(onContinueButtonPressed(sender:)), for: .touchUpInside)
         }
     }
-    
+
+    private var typePickerView = UIPickerView()
     private var pickerView = UIPickerView()
     var presenter: PaymentMethodPresenterProtocol?
 
@@ -39,11 +40,11 @@ final class PaymentMethodViewController: UIViewController {
 // MARK: - Targets
 extension PaymentMethodViewController {
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        pickerTextField.select(nil)
+        paymentMethodTextField.select(nil)
     }
 
     @objc func onContinueButtonPressed(sender: UIButton) {
-        presenter?.onContinueButtonPressed()
+        presenter?.onContinueButtonPressed(with: paymentMethodTextField.text ?? "")
     }
 }
 
@@ -54,8 +55,14 @@ extension PaymentMethodViewController {
 
         pickerView.delegate = self
         pickerView.dataSource = self
-        pickerTextField.inputView = pickerView
+        pickerView.tag = 1
+        paymentMethodTextField.inputView = pickerView
 
+        typePickerView.delegate = self
+        typePickerView.dataSource = self
+        typePickerView.tag = 2
+        paymentTypeTextField.inputView = typePickerView
+        
         presenter?.onViewDidLoad()
     }
 
@@ -66,8 +73,10 @@ extension PaymentMethodViewController {
 
 // MARK: - PaymentMethodViewProtocol
 extension PaymentMethodViewController: PaymentMethodViewProtocol {
-    func set(paymentTypes: [PaymentType]) {
+    func set(paymentTypes: [PaymentType], and typeId: String) {
         setPaymentMethodImage(with: paymentTypes[0].thumbnail)
+        paymentMethodTextField.text = paymentTypes[0].name
+        paymentTypeTextField.text = typeId
     }
     
     func startActivityIndicator() {
@@ -97,7 +106,11 @@ extension PaymentMethodViewController: PaymentMethodViewProtocol {
 // MARK: - UIPickerViewDelegate
 extension PaymentMethodViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        presenter?.paymentMethodName(by: row)
+        switch pickerView.tag {
+        case 1: return presenter?.paymentMethodName(by: row, and: paymentTypeTextField.text ?? "")
+        case 2: return presenter?.paymentTypeIdName(by: row)
+        default: return presenter?.paymentMethodName(by: row, and: paymentTypeTextField.text ?? "")
+        }
     }
 }
 
@@ -108,12 +121,29 @@ extension PaymentMethodViewController: UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        presenter?.paymentMethodsCount() ?? 0
+        switch pickerView.tag {
+        case 1: return presenter?.paymentMethodsCount(by: paymentTypeTextField.text ?? "") ?? 0
+        case 2: return presenter?.paymentTypeIdCount() ?? 0
+        default: return presenter?.paymentMethodsCount(by: paymentTypeTextField.text ?? "") ?? 0
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerTextField.text = presenter?.paymentMethodName(by: row)
-        pickerTextField.resignFirstResponder()
-        setPaymentMethodImage(with: presenter?.paymentMethodUrlImage(by: row) ?? "") // Set No Image url
+        switch pickerView.tag {
+        case 1:
+            paymentMethodTextField.text = presenter?.paymentMethodName(by: row, and: paymentTypeTextField.text ?? "")
+            paymentMethodTextField.resignFirstResponder()
+            setPaymentMethodImage(with: presenter?.paymentMethodUrlImage(by: row, and: paymentTypeTextField.text ?? "") ?? "")
+        case 2:
+            paymentTypeTextField.text = presenter?.paymentTypeId(by: row)
+            paymentMethodTextField.text = presenter?.paymentMethodName(by: 0, and: paymentTypeTextField.text ?? "")
+            setPaymentMethodImage(with: presenter?.paymentMethodUrlImage(by: 0, and: paymentTypeTextField.text ?? "") ?? "")
+            self.pickerView.selectRow(0, inComponent: 0, animated: false)
+            paymentTypeTextField.resignFirstResponder()
+
+        default: return
+        }
     }
+    
+    
 }

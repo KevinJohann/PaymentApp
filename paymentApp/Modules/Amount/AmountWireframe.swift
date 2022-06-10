@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - AmountDelegate
 protocol AmountDelegate: AnyObject {
-    func goToPaymentMethod(with amountData: String)
+    func goToPaymentMethod(with data: TransactionDataProtocol)
     func onAlertRequested(errorMessage: String)
 }
 

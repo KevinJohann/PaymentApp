@@ -6,19 +6,38 @@
 //  
 //
 
+import Foundation
+import SystemConfiguration
+
 // MARK: - PaymentMethodPresenter
 final class PaymentMethodPresenter {
     weak var view: PaymentMethodViewProtocol?
     var interactor: PaymentMethodInteractorProtocol?
     weak var delegate: PaymentMethodDelegate?
+    private let transactionData: TransactionDataProtocol
 
     private var paymentTypes: [PaymentType]? {
         didSet {
             guard let paymentTypes = paymentTypes else {
                 return
             }
-            view?.set(paymentTypes: paymentTypes)
+            paymentTypes.forEach {
+                let typeId = $0.paymentTypeId
+                let containtsTypeId = paymentTypeId.contains { data in
+                    data == typeId
+                }
+                if !containtsTypeId {
+                    paymentTypeId.append($0.paymentTypeId)    
+                }
+            }
+            view?.set(paymentTypes: paymentTypes, and: paymentTypeId[0])
         }
+    }
+
+    private var paymentTypeId = [String]()
+
+    init(transactionData: TransactionDataProtocol) {
+        self.transactionData = transactionData
     }
 }
 
@@ -29,29 +48,73 @@ extension PaymentMethodPresenter: PaymentMethodPresenterProtocol {
         interactor?.onGetPaymentMethods()
     }
 
-    func paymentMethodsCount() -> Int {
+    func paymentMethodsCount(by typeId: String) -> Int {
         guard let paymentTypes = paymentTypes else {
             return 0
         }
-        return paymentTypes.count
+        let filteredPaymentTypes = paymentTypes.filter {
+            $0.paymentTypeId == typeId
+        }
+        return filteredPaymentTypes.count
     }
 
-    func paymentMethodName(by position: Int) -> String {
+    func paymentTypeIdCount() -> Int {
+        return paymentTypeId.count
+    }
+
+    func paymentMethodName(by position: Int, and typeId: String) -> String {
         guard let paymentTypes = paymentTypes else {
             return ""
         }
+        let filteredPaymentTypes = paymentTypes.filter {
+            $0.paymentTypeId == typeId
+        }
+        return filteredPaymentTypes[position].name
+    }
+
+    func paymentTypeIdName(by position: Int) -> String {
+        return paymentTypeId[position]
+    }
+
+    func paymentType(by position: Int) -> String {
+        guard let paymentTypes = paymentTypes else {
+            return ""
+        }
+        
         return paymentTypes[position].name
     }
 
-    func paymentMethodUrlImage(by position: Int) -> String {
+    func paymentMethodUrlImage(by position: Int, and typeId: String) -> String {
         guard let paymentTypes = paymentTypes else {
             return ""
         }
-        return paymentTypes[position].secureThumbnail
+        let filteredPaymentTypes = paymentTypes.filter {
+            $0.paymentTypeId == typeId
+        }
+        return filteredPaymentTypes[position].secureThumbnail
     }
 
-    func onContinueButtonPressed() {
+    func paymentTypeId(by position: Int) -> String {
+        paymentTypeId[position]
+    }
+    
+    func onContinueButtonPressed(with cardName: String) {
+        var updatedTransactionData = transactionData
         
+        let filteredPaymentType = paymentTypes?.filter {
+            $0.name == cardName
+        }
+
+        guard let paymentType = filteredPaymentType?.first else {
+            return
+        }
+        
+        updatedTransactionData.paymentType = cardName
+        updatedTransactionData.paymentId = paymentType.id
+
+//        delegate.goToBankSelection(with: updatedTransactionData)
+        print(updatedTransactionData)
+        print("🛑 ----------------- 🛑")
     }
 }
 

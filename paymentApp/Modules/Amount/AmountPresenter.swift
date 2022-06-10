@@ -29,7 +29,9 @@ extension AmountPresenter: AmountPresenterProtocol {
             delegate?.onAlertRequested(errorMessage: .moreThanZeroText)
             return
         }
-        delegate?.goToPaymentMethod(with: amountData)
+        let txData = TransactionData()
+        txData.amount = amountData
+        delegate?.goToPaymentMethod(with: txData)
     }
 }
 

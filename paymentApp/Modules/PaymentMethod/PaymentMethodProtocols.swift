@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - View
 protocol PaymentMethodViewProtocol: AnyObject {
-    func set(paymentTypes: [PaymentType])
+    func set(paymentTypes: [PaymentType], and typeId: String)
     func startActivityIndicator()
     func stopActivityIndicator()
 }
@@ -30,8 +30,11 @@ protocol PaymentMethodInteractorOutputProtocol: AnyObject {
 // MARK: - Presenter
 protocol PaymentMethodPresenterProtocol: AnyObject {
     func onViewDidLoad()
-    func paymentMethodsCount() -> Int
-    func paymentMethodName(by position: Int) -> String
-    func paymentMethodUrlImage(by position: Int) -> String
-    func onContinueButtonPressed()
+    func paymentMethodsCount(by typeId: String) -> Int
+    func paymentTypeIdCount() -> Int
+    func paymentMethodName(by position: Int, and typeId: String) -> String
+    func paymentTypeIdName(by position: Int) -> String
+    func paymentMethodUrlImage(by position: Int, and typeId: String) -> String
+    func onContinueButtonPressed(with cardName: String)
+    func paymentTypeId(by position: Int) -> String
 }

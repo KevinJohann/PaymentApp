@@ -76,8 +76,8 @@
                     <connections>
                         <outlet property="continueButton" destination="agC-00-HBW" id="Z2s-zi-Nkw"/>
                         <outlet property="methodImageView" destination="CbZ-HY-vDd" id="gn2-Kd-mJx"/>
+                        <outlet property="paymentMethodTextField" destination="Y3f-vw-sQz" id="5Wg-BK-SrG"/>
                         <outlet property="paymentTypeTextField" destination="pAP-nG-2ut" id="liM-08-zsx"/>
-                        <outlet property="pickerTextField" destination="Y3f-vw-sQz" id="5Wg-BK-SrG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUx-Sv-e1q" userLabel="First Responder" sceneMemberID="firstResponder"/>

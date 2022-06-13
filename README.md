@@ -1,8 +1,8 @@
 # VIPER + Coordinator diagnostic app
 
-A Mercado libre (meli) diagnostic application.
+A Mercado Libre (meli) diagnostic application.
 
-- App internal use open apis from meli.
+- App use internal meli api to solve the test.
 
 # How to use.
 

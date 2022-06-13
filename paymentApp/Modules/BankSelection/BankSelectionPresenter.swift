@@ -6,12 +6,16 @@
 //  
 //
 
+import UIKit
+
 // MARK: - BankSelectionPresenter
 final class BankSelectionPresenter {
     weak var view: BankSelectionViewProtocol?
-    var interactor: BankSelectionInteractorProtocol?
     weak var delegate: BankSelectionDelegate?
+
+    var interactor: BankSelectionInteractorProtocol?
     private let transactionData: TransactionDataProtocol
+    private var selectedBankId: String?
     
     private var bankList: [Bank]? {
         didSet {
@@ -19,8 +23,9 @@ final class BankSelectionPresenter {
                 // Catch, make something
                 return
             }
-            
+            selectedBankId = firstBank.id
             view?.set(bankName: firstBank.name)
+            view?.setInitialBankImage(with: firstBank.secureThumbnail)
         }
     }
     init(transactionData: TransactionDataProtocol) {
@@ -33,7 +38,7 @@ extension BankSelectionPresenter: BankSelectionPresenterProtocol {
     func onViewDidLoad() {
         view?.startActivityIndicator()
 
-        guard let paymentId = transactionData.paymentId else {
+        guard let paymentId = transactionData.paymentMethodId else {
             return
         }
         interactor?.onGetBankList(with: paymentId)
@@ -53,8 +58,21 @@ extension BankSelectionPresenter: BankSelectionPresenterProtocol {
         return bankList.count
     }
 
+    func bankListUrlImage(by position: Int) -> String {
+        guard let bankList = bankList else {
+            return ""
+        }
+        return bankList[position].secureThumbnail
+    }
+
+    func setSelectedBankId(by position: Int) {
+        selectedBankId = bankList?[position].id ?? ""
+    }
+
     func onContinueButtonPressed() {
-        
+        var updatedTransactionData = transactionData
+        updatedTransactionData.issuerId = selectedBankId
+        delegate?.goToQuotaSelection(with: updatedTransactionData)
     }
 }
 

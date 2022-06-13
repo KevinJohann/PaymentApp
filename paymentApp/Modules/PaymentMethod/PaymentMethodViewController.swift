@@ -21,6 +21,9 @@ final class PaymentMethodViewController: UIViewController {
     }
     @IBOutlet weak var continueButton: UIButton! {
         didSet {
+            continueButton.backgroundColor = .lightBlueMercPago
+            continueButton.setTitleColor(.white, for: .normal)
+            continueButton.layer.cornerRadius = .commonCorner
             continueButton.addTarget(self, action: #selector(onContinueButtonPressed(sender:)), for: .touchUpInside)
         }
     }
@@ -52,7 +55,6 @@ extension PaymentMethodViewController {
 extension PaymentMethodViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = false
 
         paymentMethodPickerView.delegate = self
         paymentMethodPickerView.dataSource = self
@@ -63,21 +65,23 @@ extension PaymentMethodViewController {
         paymentTypePickerView.dataSource = self
         paymentTypePickerView.tag = 2
         paymentTypeTextField.inputView = paymentTypePickerView
-        
         presenter?.onViewDidLoad()
     }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        let backItem = UIBarButtonItem()
+        backItem.tintColor = .lightBlueMercPago
+        backItem.title = "Volver"
+        self.navigationItem.backBarButtonItem = backItem
     }
 }
 
 // MARK: - PaymentMethodViewProtocol
 extension PaymentMethodViewController: PaymentMethodViewProtocol {
-    func set(paymentTypes: [PaymentType], and typeId: String) {
-        setPaymentMethodImage(with: paymentTypes[0].thumbnail)
-        paymentMethodTextField.text = paymentTypes[0].name
-        paymentTypeTextField.text = typeId
+    func setFirstPaymentTypes(data: PaymentType, and paymentTypeId: String) {
+        setPaymentMethodImage(with: data.secureThumbnail)
+        paymentMethodTextField.text = data.name
+        paymentTypeTextField.text = paymentTypeId
     }
     
     func startActivityIndicator() {
@@ -89,18 +93,6 @@ extension PaymentMethodViewController: PaymentMethodViewProtocol {
 
     func stopActivityIndicator() {
         activityIndicator.removeFromSuperview()
-    }
-
-    func setPaymentMethodImage(with url: String) {
-        guard let url = URL(string: url) else {
-            return
-        }
-        do {
-            let data = try Data(contentsOf: url)
-            methodImageView.image = UIImage(data: data)
-        } catch {
-            print("Url Error")
-        }
     }
 }
 
@@ -143,6 +135,21 @@ extension PaymentMethodViewController: UIPickerViewDataSource {
             paymentTypeTextField.resignFirstResponder()
 
         default: return
+        }
+    }
+}
+
+// MARK: - Private Func
+extension PaymentMethodViewController {
+    private func setPaymentMethodImage(with url: String) {
+        guard let url = URL(string: url) else {
+            return
+        }
+        do {
+            let data = try Data(contentsOf: url)
+            methodImageView.image = UIImage(data: data)
+        } catch {
+            print("Url Error")
         }
     }
 }

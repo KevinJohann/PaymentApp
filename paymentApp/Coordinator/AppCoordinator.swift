@@ -6,25 +6,29 @@
 //
 
 import UIKit
+import Hero
 
 // MARK: - TransactionDataProtocol
 protocol TransactionDataProtocol {
     /// Initial view, typed user amount
     var amount: String? { set get }
     /// Selected payment card id
-    var paymentId: String? { set get }
-    /// Selected payment type
-    var paymentType: String? { set get }
-    /// Selected payment
-    var payment: String? { set get }
+    var paymentMethodId: String? { set get }
+    /// Selected payment type card name
+    var paymentTypeCardName: String? { set get }
+    /// Payment id
+    var issuerId: String? { set get }
+    /// Selected Quota text
+    var selectedQuota: String? { set get }
 }
 
 // MARK: - TransactionData
 class TransactionData: TransactionDataProtocol {
     var amount: String?
-    var paymentId: String?
-    var paymentType: String?
-    var payment: String?
+    var paymentMethodId: String?
+    var paymentTypeCardName: String?
+    var issuerId: String?
+    var selectedQuota: String?
 }
 
 // MARK: - Coordinator
@@ -45,7 +49,7 @@ final class AppCoordinator {
         navigationController.modalPresentationStyle = .fullScreen
 
         navigationController.setNavigationBarHidden(true, animated: false)
-
+        
         self.navigationController = navigationController
     }
 }
@@ -54,6 +58,7 @@ final class AppCoordinator {
 extension AppCoordinator: AppCoordinatorProtocol {
     func start() {
         let vc = SplashWireframe.createModule(with: self)
+        navigationController.hero.isEnabled = true
         navigationController.pushViewController(vc, animated: true)
     }
 }
@@ -61,8 +66,8 @@ extension AppCoordinator: AppCoordinatorProtocol {
 // MARK: - SplashDelegate
 extension AppCoordinator: SplashDelegate {
     func goToAmountRequested() {
-        let amountVC = AmountWireframe.createModule(with: self)
-        navigationController.pushViewController(amountVC, animated: true)
+        let amountVC = AmountWireframe.createModule(with: self, transactionData: nil)
+        navigationController.setViewControllers([amountVC], animated: true)
     }
 }
 
@@ -73,6 +78,7 @@ extension AppCoordinator: AmountDelegate {
         guard let transactionData = transactionData else {
             return
         }
+        navigationController.isNavigationBarHidden = false
         let vc = PaymentMethodWireframe.createModule(with: self, transactionData: transactionData)
         navigationController.pushViewController(vc, animated: true)
     }
@@ -80,6 +86,12 @@ extension AppCoordinator: AmountDelegate {
     func onAlertRequested(errorMessage: String) {
         let nc = navigationController.topViewController
         nc?.presentAlertView(type: .customAlert(title: "Error", message: errorMessage))
+    }
+
+    func openModal(with data: TransactionDataProtocol) {
+        let vc = PaymentResumeViewController.storyboardViewController()
+        vc.set(dataSource: data)
+        navigationController.topViewController?.present(vc, animated: true, completion: nil)
     }
 }
 
@@ -106,5 +118,16 @@ extension AppCoordinator: PaymentMethodDelegate {
 
 // MARK: - BankSelectionDelegate
 extension AppCoordinator: BankSelectionDelegate {
+    func goToQuotaSelection(with transactionData: TransactionDataProtocol) {
+        let vc = QuotaSelectionWireframe.createModule(with: self, transactionData: transactionData)
+        navigationController.pushViewController(vc, animated: true)
+    }
+}
 
+// MARK: - QuotaSelectionDelegate
+extension AppCoordinator: QuotaSelectionDelegate {
+    func goToRootView(with transactionData: TransactionDataProtocol) {
+        let amountVC = AmountWireframe.createModule(with: self, transactionData: transactionData)
+        navigationController.setViewControllers([amountVC], animated: true)
+    }
 }

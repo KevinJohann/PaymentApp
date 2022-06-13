@@ -17,12 +17,14 @@ protocol Parameterizable {
 enum APIRouter: URLRequestConvertible {
     case paymentMethod(Parameterizable)
     case bankList(Parameterizable)
+    case quota(Parameterizable)
 
     // MARK: - Path as String
     var path: String {
         switch self {
         case .paymentMethod: return "/payment_methods"
         case .bankList: return "/payment_methods/card_issuers"
+        case .quota: return "/payment_methods/installments"
         }
     }
 
@@ -40,7 +42,8 @@ enum APIRouter: URLRequestConvertible {
     var method: HTTPMethod {
         switch self {
         case .paymentMethod,
-             .bankList: return .get
+             .bankList,
+             .quota: return .get
         }
     }
 
@@ -55,7 +58,8 @@ enum APIRouter: URLRequestConvertible {
     var parameters: Parameters {
         switch self {
         case .paymentMethod(let parameters),
-             .bankList(let parameters): return parameters.asParameters
+             .bankList(let parameters),
+             .quota(let parameters): return parameters.asParameters
         }
     }
     

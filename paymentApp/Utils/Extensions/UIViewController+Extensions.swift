@@ -12,6 +12,14 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+
+    var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+
+    var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
 }
 
 // MARK: - Alert view

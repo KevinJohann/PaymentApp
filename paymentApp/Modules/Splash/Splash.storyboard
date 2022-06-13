@@ -15,21 +15,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOb-dy-59B" userLabel="welcomeLabel">
-                                <rect key="frame" x="143" y="318.5" width="89" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="wOb-dy-59B" secondAttribute="height" multiplier="3:1" id="BhG-Wr-kjN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="z47-PO-IjM">
+                                <rect key="frame" x="59.5" y="204" width="256" height="259"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mercadoPagoImage" translatesAutoresizingMaskIntoConstraints="NO" id="ENN-8H-k3D">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="210"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="210" id="i38-qP-Wu2"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="logo"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="bg7-HU-R1T">
+                                        <rect key="frame" x="109.5" y="222" width="37" height="37"/>
+                                        <color key="color" red="0.0" green="0.76980829240000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ord-RF-Sy8"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wOb-dy-59B" firstAttribute="centerY" secondItem="N7N-xn-Wp5" secondAttribute="centerY" id="RKV-lX-m5B"/>
-                            <constraint firstItem="wOb-dy-59B" firstAttribute="centerX" secondItem="N7N-xn-Wp5" secondAttribute="centerX" id="arP-UN-ijc"/>
+                            <constraint firstItem="z47-PO-IjM" firstAttribute="centerX" secondItem="N7N-xn-Wp5" secondAttribute="centerX" id="2pU-Gj-6P5"/>
+                            <constraint firstItem="z47-PO-IjM" firstAttribute="centerY" secondItem="N7N-xn-Wp5" secondAttribute="centerY" id="KRg-Qq-ULv"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,4 +48,7 @@
             <point key="canvasLocation" x="-178" y="49"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mercadoPagoImage" width="256" height="256"/>
+    </resources>
 </document>

@@ -11,6 +11,7 @@ import UIKit
 // MARK: - BankSelectionDelegate
 protocol BankSelectionDelegate: AnyObject {
     func onErrorView(with message: String)
+    func goToQuotaSelection(with transactionData: TransactionDataProtocol)
 }
 
 // MARK: - BankSelectionWireframe

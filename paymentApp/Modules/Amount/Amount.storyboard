@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,50 +16,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="C6Y-kW-Pa0" userLabel="mainContentStackView">
-                                <rect key="frame" x="0.0" y="268.5" width="375" height="130.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VvI-Os-aW6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese el monto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0r-UF-WVp">
-                                        <rect key="frame" x="32" y="0.0" width="311" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FqW-sG-4lb" userLabel="amountTextField" customClass="AllowedCharsTextField" customModule="paymentApp" customModuleProvider="target">
-                                        <rect key="frame" x="32" y="36.5" width="311" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="F5e-xQ-Ipf"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="allowedChars" value="1234567890"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pdC-lf-gba" userLabel="buttonsStackView">
-                                        <rect key="frame" x="32" y="100.5" width="311" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="C6Y-kW-Pa0" userLabel="mainContentStackView">
+                                        <rect key="frame" x="0.0" y="196" width="375" height="158.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWE-rQ-GsV" userLabel="backButton">
-                                                <rect key="frame" x="0.0" y="0.0" width="147.5" height="30"/>
-                                                <state key="normal" title="Limpiar"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAs-Ny-5oP" userLabel="continueButton">
-                                                <rect key="frame" x="163.5" y="0.0" width="147.5" height="30"/>
-                                                <state key="normal" title="Continuar"/>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UfV-l0-G88" userLabel="topFieldStackView">
+                                                <rect key="frame" x="32" y="0.0" width="311" height="86.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese monto" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0r-UF-WVp">
+                                                        <rect key="frame" x="0.0" y="0.0" width="311" height="18.5"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FqW-sG-4lb" userLabel="amountTextField" customClass="AllowedCharsTextField" customModule="paymentApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="38.5" width="311" height="48"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="F5e-xQ-Ipf"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="allowedChars" value="1234567890"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pdC-lf-gba" userLabel="buttonsStackView">
+                                                <rect key="frame" x="32" y="118.5" width="311" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWE-rQ-GsV" userLabel="backButton">
+                                                        <rect key="frame" x="0.0" y="0.0" width="147.5" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="FOJ-WS-BNH"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                        <state key="normal" title="Limpiar"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAs-Ny-5oP" userLabel="continueButton">
+                                                        <rect key="frame" x="163.5" y="0.0" width="147.5" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="Efb-cV-dIQ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                        <state key="normal" title="Continuar"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
+                                        <edgeInsets key="layoutMargins" top="0.0" left="32" bottom="0.0" right="32"/>
                                     </stackView>
                                 </subviews>
-                                <edgeInsets key="layoutMargins" top="0.0" left="32" bottom="0.0" right="32"/>
-                            </stackView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="C6Y-kW-Pa0" secondAttribute="trailing" id="4cq-dn-7Ro"/>
+                                    <constraint firstItem="C6Y-kW-Pa0" firstAttribute="centerY" secondItem="VvI-Os-aW6" secondAttribute="centerY" id="Jgo-c2-rTG"/>
+                                    <constraint firstItem="C6Y-kW-Pa0" firstAttribute="leading" secondItem="VvI-Os-aW6" secondAttribute="leading" id="LQO-wu-gEz"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mercadoPagoImage" translatesAutoresizingMaskIntoConstraints="NO" id="8O9-Yu-y22">
+                                <rect key="frame" x="0.0" y="551" width="375" height="100"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="logo"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ord-RF-Sy8"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="C6Y-kW-Pa0" firstAttribute="centerY" secondItem="N7N-xn-Wp5" secondAttribute="centerY" id="FEE-6L-3hM"/>
-                            <constraint firstItem="C6Y-kW-Pa0" firstAttribute="centerX" secondItem="N7N-xn-Wp5" secondAttribute="centerX" id="O0u-8o-fkL"/>
-                            <constraint firstItem="C6Y-kW-Pa0" firstAttribute="leading" secondItem="Ord-RF-Sy8" secondAttribute="leading" id="Q5f-nR-bTF"/>
-                            <constraint firstItem="Ord-RF-Sy8" firstAttribute="trailing" secondItem="C6Y-kW-Pa0" secondAttribute="trailing" id="dJ8-LO-cnD"/>
+                            <constraint firstItem="VvI-Os-aW6" firstAttribute="leading" secondItem="Ord-RF-Sy8" secondAttribute="leading" id="TVa-gp-0hS"/>
+                            <constraint firstItem="8O9-Yu-y22" firstAttribute="leading" secondItem="Ord-RF-Sy8" secondAttribute="leading" id="TXd-jS-WXt"/>
+                            <constraint firstItem="Ord-RF-Sy8" firstAttribute="bottom" secondItem="8O9-Yu-y22" secondAttribute="bottom" constant="16" id="Y2J-oS-ecU"/>
+                            <constraint firstItem="8O9-Yu-y22" firstAttribute="height" secondItem="N7N-xn-Wp5" secondAttribute="height" multiplier="0.15" id="cix-TD-0c9"/>
+                            <constraint firstItem="VvI-Os-aW6" firstAttribute="bottom" secondItem="8O9-Yu-y22" secondAttribute="top" id="eCL-wR-XVu"/>
+                            <constraint firstItem="Ord-RF-Sy8" firstAttribute="trailing" secondItem="8O9-Yu-y22" secondAttribute="trailing" id="hZ6-Mz-9m6"/>
+                            <constraint firstItem="VvI-Os-aW6" firstAttribute="top" secondItem="Ord-RF-Sy8" secondAttribute="top" id="iu9-wv-maX"/>
+                            <constraint firstItem="Ord-RF-Sy8" firstAttribute="trailing" secondItem="VvI-Os-aW6" secondAttribute="trailing" id="lNI-hd-3Nh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -72,4 +108,10 @@
             <point key="canvasLocation" x="-178" y="49"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mercadoPagoImage" width="256" height="256"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

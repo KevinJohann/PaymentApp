@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Payment Resume View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="Y6W-OH-hqX" customClass="PaymentResumeViewController" customModule="paymentApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXx-tp-HEy" userLabel="backgroundButton">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDD-Dm-DQL" userLabel="cardView">
+                                <rect key="frame" x="41.5" y="179" width="331" height="538"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vT4-AW-g76" userLabel="resumeCollectionView">
+                                        <rect key="frame" x="0.0" y="158.5" width="331" height="291.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HoZ-Kl-yy9">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Y6W-OH-hqX" id="O1K-rM-m0G"/>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="Vva-Mq-HKX"/>
+                                        </connections>
+                                    </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUj-ln-1E5" userLabel="continueButton">
+                                        <rect key="frame" x="16" y="482" width="299" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Sox-4c-wzt"/>
+                                        </constraints>
+                                        <state key="normal" title="Aceptar"/>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mercadoPagoImage" translatesAutoresizingMaskIntoConstraints="NO" id="E2b-Ei-HgD">
+                                        <rect key="frame" x="64.5" y="8" width="202" height="134.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="E2b-Ei-HgD" secondAttribute="height" multiplier="3:2" id="xsW-Vb-lst"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="E2b-Ei-HgD" firstAttribute="height" secondItem="FDD-Dm-DQL" secondAttribute="height" multiplier="0.25" id="1Bh-CE-Bh7"/>
+                                    <constraint firstItem="kUj-ln-1E5" firstAttribute="leading" secondItem="FDD-Dm-DQL" secondAttribute="leading" constant="16" id="5U5-5L-0yy"/>
+                                    <constraint firstItem="vT4-AW-g76" firstAttribute="bottom" secondItem="kUj-ln-1E5" secondAttribute="top" constant="-32" id="6NZ-v8-clE"/>
+                                    <constraint firstAttribute="trailing" secondItem="vT4-AW-g76" secondAttribute="trailing" id="EFm-gd-dkR"/>
+                                    <constraint firstItem="E2b-Ei-HgD" firstAttribute="top" secondItem="FDD-Dm-DQL" secondAttribute="top" constant="8" id="FmE-Nm-w1Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="kUj-ln-1E5" secondAttribute="bottom" constant="16" id="Ldn-L5-eDX"/>
+                                    <constraint firstAttribute="trailing" secondItem="kUj-ln-1E5" secondAttribute="trailing" constant="16" id="UKS-aF-82i"/>
+                                    <constraint firstItem="E2b-Ei-HgD" firstAttribute="centerX" secondItem="FDD-Dm-DQL" secondAttribute="centerX" id="ezm-Kl-1c6"/>
+                                    <constraint firstItem="vT4-AW-g76" firstAttribute="leading" secondItem="FDD-Dm-DQL" secondAttribute="leading" id="n58-tV-PLA"/>
+                                    <constraint firstItem="E2b-Ei-HgD" firstAttribute="bottom" secondItem="vT4-AW-g76" secondAttribute="top" constant="-16" id="tYL-bp-NjQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FDD-Dm-DQL" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.8" id="6T3-db-BZa"/>
+                            <constraint firstItem="FDD-Dm-DQL" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Ta4-MF-NEc"/>
+                            <constraint firstItem="vXx-tp-HEy" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="dqi-OR-Ets"/>
+                            <constraint firstItem="FDD-Dm-DQL" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.6" id="fyt-GC-XP4"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vXx-tp-HEy" secondAttribute="trailing" id="mWn-Uz-gcw"/>
+                            <constraint firstItem="FDD-Dm-DQL" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="pQ1-fd-3qx"/>
+                            <constraint firstAttribute="bottom" secondItem="vXx-tp-HEy" secondAttribute="bottom" id="qC5-e4-9hx"/>
+                            <constraint firstItem="vXx-tp-HEy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rXK-Qj-v68"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundButton" destination="vXx-tp-HEy" id="mRf-FL-dmJ"/>
+                        <outlet property="cardView" destination="FDD-Dm-DQL" id="hyy-VX-sly"/>
+                        <outlet property="continueButton" destination="kUj-ln-1E5" id="OoX-QY-Mop"/>
+                        <outlet property="resumeCollectionView" destination="vT4-AW-g76" id="Y6G-E9-WPp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="92.753623188405811" y="79.6875"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mercadoPagoImage" width="256" height="256"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

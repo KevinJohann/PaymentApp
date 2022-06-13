@@ -16,21 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ro-zZ-hdW" userLabel="welcomeLabel">
-                                <rect key="frame" x="162.5" y="433" width="89" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="8ro-zZ-hdW" secondAttribute="height" multiplier="3:1" id="1HB-q3-az7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="cqS-XL-kRl">
+                                <rect key="frame" x="79" y="318.5" width="256" height="259"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mercadoPagoImage" translatesAutoresizingMaskIntoConstraints="NO" id="4fF-eW-z9K">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="210"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="210" id="9oF-PS-IXc"/>
+                                        </constraints>
+                                    </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="4Ay-7r-oRN">
+                                        <rect key="frame" x="109.5" y="222" width="37" height="37"/>
+                                        <color key="color" red="0.0" green="0.76980829240000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8ro-zZ-hdW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="PcL-K9-QcV"/>
-                            <constraint firstItem="8ro-zZ-hdW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="q0V-gd-9YQ"/>
+                            <constraint firstItem="cqS-XL-kRl" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="2I7-t6-Wdw"/>
+                            <constraint firstItem="cqS-XL-kRl" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="c9Z-UT-A8k"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,6 +46,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="mercadoPagoImage" width="256" height="256"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

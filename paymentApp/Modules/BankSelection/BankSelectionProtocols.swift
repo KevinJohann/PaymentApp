@@ -12,6 +12,7 @@ import UIKit
 protocol BankSelectionViewProtocol: AnyObject {
     func startActivityIndicator()
     func stopActivityIndicator()
+    func setInitialBankImage(with url: String)
     func set(bankName: String)
 }
 
@@ -33,4 +34,6 @@ protocol BankSelectionPresenterProtocol: AnyObject {
     func bankName(by position: Int) -> String
     func bankListCount() -> Int
     func onContinueButtonPressed()
+    func bankListUrlImage(by position: Int) -> String
+    func setSelectedBankId(by position: Int)
 }

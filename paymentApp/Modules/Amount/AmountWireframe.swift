@@ -12,13 +12,14 @@ import UIKit
 protocol AmountDelegate: AnyObject {
     func goToPaymentMethod(with data: TransactionDataProtocol)
     func onAlertRequested(errorMessage: String)
+    func openModal(with data: TransactionDataProtocol)
 }
 
 // MARK: - AmountWireframe
 enum AmountWireframe {
-    static func createModule(with delegate: AmountDelegate) -> UIViewController {
+    static func createModule(with delegate: AmountDelegate, transactionData: TransactionDataProtocol?) -> UIViewController {
         let view = AmountViewController.storyboardViewController()
-        let presenter = AmountPresenter()
+        let presenter = AmountPresenter(transactionData: transactionData)
         let interactor = AmountInteractor()
 
         view.presenter = presenter

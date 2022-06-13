@@ -12,8 +12,9 @@ import SystemConfiguration
 // MARK: - PaymentMethodPresenter
 final class PaymentMethodPresenter {
     weak var view: PaymentMethodViewProtocol?
-    var interactor: PaymentMethodInteractorProtocol?
     weak var delegate: PaymentMethodDelegate?
+
+    var interactor: PaymentMethodInteractorProtocol?
     private let transactionData: TransactionDataProtocol
 
     private var paymentTypes: [PaymentType]? {
@@ -30,7 +31,10 @@ final class PaymentMethodPresenter {
                     paymentTypeId.append($0.paymentTypeId)    
                 }
             }
-            view?.set(paymentTypes: paymentTypes, and: paymentTypeId[0])
+            guard let firstPaymentTypes = paymentTypes.first else {
+                return
+            }
+            view?.setFirstPaymentTypes(data: firstPaymentTypes, and: paymentTypeId[0])
         }
     }
 
@@ -109,8 +113,8 @@ extension PaymentMethodPresenter: PaymentMethodPresenterProtocol {
             return
         }
         
-        updatedTransactionData.paymentType = cardName
-        updatedTransactionData.paymentId = paymentType.id
+        updatedTransactionData.paymentTypeCardName = cardName
+        updatedTransactionData.paymentMethodId = paymentType.id
 
         delegate?.goToBankSelection(with: updatedTransactionData)
     }

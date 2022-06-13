@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - View
 protocol PaymentMethodViewProtocol: AnyObject {
-    func set(paymentTypes: [PaymentType], and typeId: String)
+    func setFirstPaymentTypes(data: PaymentType, and paymentTypeId:String)
     func startActivityIndicator()
     func stopActivityIndicator()
 }

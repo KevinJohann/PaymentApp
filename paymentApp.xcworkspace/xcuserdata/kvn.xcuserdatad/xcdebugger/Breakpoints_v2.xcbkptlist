@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "AE5870B9-BAD2-4735-8474-DFAFC200B0D8"
+   uuid = "18F4961D-D65A-41E5-A26F-8CE8E74F3E3C"
    type = "0"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D0DCE2BB-EEC4-4EBA-B55A-6E8F7A5DC4EE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "paymentApp/Network/APIRouter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "asURLRequest()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iIG-Rk-DhD">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Quota Selection View Controller-->
+        <scene sceneID="MV2-5f-f1s">
+            <objects>
+                <viewController id="iIG-Rk-DhD" customClass="QuotaSelectionViewController" customModule="paymentApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N7N-xn-Wp5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="YTq-8n-A2d" userLabel="contentStackView">
+                                <rect key="frame" x="0.0" y="255" width="375" height="157"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione cantidad de cuotas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDe-wh-5Jd" userLabel="titleLabel">
+                                        <rect key="frame" x="32" y="0.0" width="311" height="19"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qni-Pr-rco" userLabel="quotaTextField">
+                                        <rect key="frame" x="32" y="51" width="311" height="34"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yl6-iE-pbc" userLabel="continueButton">
+                                        <rect key="frame" x="32" y="117" width="311" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Raz-Ey-b18"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <state key="normal" title="Continuar"/>
+                                    </button>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="0.0" left="32" bottom="0.0" right="32"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ord-RF-Sy8"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YTq-8n-A2d" firstAttribute="centerY" secondItem="N7N-xn-Wp5" secondAttribute="centerY" id="6Wg-rv-6bn"/>
+                            <constraint firstItem="Ord-RF-Sy8" firstAttribute="trailing" secondItem="YTq-8n-A2d" secondAttribute="trailing" id="BWt-Wu-SQ1"/>
+                            <constraint firstItem="YTq-8n-A2d" firstAttribute="leading" secondItem="Ord-RF-Sy8" secondAttribute="leading" id="NCi-lj-CQe"/>
+                            <constraint firstItem="YTq-8n-A2d" firstAttribute="centerX" secondItem="N7N-xn-Wp5" secondAttribute="centerX" id="j6e-Jb-7cK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="continueButton" destination="yl6-iE-pbc" id="nAD-qF-ddg"/>
+                        <outlet property="quotaTextField" destination="qni-Pr-rco" id="V5d-rh-sa4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lUx-Sv-e1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-178" y="49"/>
+        </scene>
+    </scenes>
+</document>

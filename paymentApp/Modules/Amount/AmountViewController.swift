@@ -45,9 +45,14 @@ extension AmountViewController {
         super.viewDidLoad()
         presenter?.onViewDidLoad()
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        let backItem = UIBarButtonItem()
+        backItem.tintColor = .lightBlueMercPago
+        backItem.title = "Volver"
+        self.navigationItem.backBarButtonItem = backItem
     }
 }
 
@@ -67,11 +72,11 @@ extension AmountViewController: AmountViewProtocol {
     func initializeButtonsConfiguration() {
         backButton.backgroundColor = .lightBlueMercPago
         backButton.setTitleColor(.white, for: .normal)
-        backButton.layer.cornerRadius = 8
+        backButton.layer.cornerRadius = .commonCorner
         
         continueButton.backgroundColor = .lightBlueMercPago
         continueButton.setTitleColor(.white, for: .normal)
-        continueButton.layer.cornerRadius = 8
+        continueButton.layer.cornerRadius = .commonCorner
     }
     
     func initializeCloseableKeyboard() {

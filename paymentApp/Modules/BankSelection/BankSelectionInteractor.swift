@@ -9,7 +9,7 @@
 // MARK: - BankSelectionInteractor
 final class BankSelectionInteractor {
     weak var interactorOutput: BankSelectionInteractorOutputProtocol?
-    var bankListManager: BankListManagerProtocol?
+    var bankListManager: BankListManagerProtocol
 
     required init(bankListManager: BankListManagerProtocol) {
         self.bankListManager = bankListManager
@@ -20,7 +20,7 @@ final class BankSelectionInteractor {
 extension BankSelectionInteractor: BankSelectionInteractorProtocol {
     func onGetBankList(with paymentMethodId: String) {
         let parameters = BankListParameters(publicKey: APIEnvironment.publicKey, paymentMethodId: paymentMethodId)
-        bankListManager?.getBankList(with: parameters)
+        bankListManager.getBankList(with: parameters)
     }
 }
 

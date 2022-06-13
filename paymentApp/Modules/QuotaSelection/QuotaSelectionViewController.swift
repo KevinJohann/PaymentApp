@@ -1,5 +1,5 @@
 //
-//  BankSelectionViewController.swift
+//  QuotaSelectionViewController.swift
 //  paymentApp
 //
 //  Created by Kevin on 09-06-22.
@@ -8,21 +8,19 @@
 
 import UIKit
 
-// MARK: - BankSelectionViewController
-final class BankSelectionViewController: UIViewController {
-    @IBOutlet weak var bankListSelectorTextField: UITextField!
-    @IBOutlet weak var bankImageView: UIImageView!
+// MARK: - QuotaSelectionViewController
+final class QuotaSelectionViewController: UIViewController {
+    @IBOutlet weak var quotaTextField: UITextField!
     @IBOutlet weak var continueButton: UIButton! {
         didSet {
-            continueButton.addTarget(self, action: #selector(onContinueButtonPressed(sender:)), for: .touchUpInside)
             continueButton.backgroundColor = .lightBlueMercPago
             continueButton.setTitleColor(.white, for: .normal)
             continueButton.layer.cornerRadius = .commonCorner
+            continueButton.addTarget(self, action: #selector(onContinueButtonPressed(sender:)), for: .touchUpInside)
         }
     }
-
     private var pickerViews = UIPickerView()
-    var presenter: BankSelectionPresenterProtocol?
+    var presenter: QuotaSelectionPresenterProtocol?
 
     lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
@@ -33,19 +31,19 @@ final class BankSelectionViewController: UIViewController {
 }
 
 // MARK: - Target
-extension BankSelectionViewController {
+extension QuotaSelectionViewController {
     @objc func onContinueButtonPressed(sender: UIButton) {
         presenter?.onContinueButtonPressed()
     }
 }
 
 // MARK: - Life cycles
-extension BankSelectionViewController {
+extension QuotaSelectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerViews.delegate = self
         pickerViews.dataSource = self
-        bankListSelectorTextField.inputView = pickerViews
+        quotaTextField.inputView = pickerViews
 
         let backItem = UIBarButtonItem()
         backItem.tintColor = .lightBlueMercPago
@@ -60,8 +58,8 @@ extension BankSelectionViewController {
     }
 }
 
-// MARK: - BankSelectionViewProtocol
-extension BankSelectionViewController: BankSelectionViewProtocol {
+// MARK: - QuotaSelectionViewProtocol
+extension QuotaSelectionViewController: QuotaSelectionViewProtocol {
     func startActivityIndicator() {
         view.addSubview(activityIndicator)
 
@@ -73,54 +71,35 @@ extension BankSelectionViewController: BankSelectionViewProtocol {
         activityIndicator.removeFromSuperview()
     }
 
-    func setInitialBankImage(with url: String) {
-        setBankImage(with: url)
-    }
-
-    func set(bankName: String) {
-        bankListSelectorTextField.text = bankName
+    
+    func set(firstQuota: String) {
+        quotaTextField.text = firstQuota
     }
 }
 
 // MARK: - UIPickerViewDelegate
-extension BankSelectionViewController: UIPickerViewDelegate {
+extension QuotaSelectionViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        presenter?.bankName(by: row)
+        presenter?.quotaText(by: row)
     }
 }
 
 // MARK: - UIPickerViewDataSource
-extension BankSelectionViewController: UIPickerViewDataSource {
+extension QuotaSelectionViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        presenter?.bankListCount() ?? 0
+        presenter?.payersCostsDataCount() ?? 0
     }
  
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        bankListSelectorTextField.text = presenter?.bankName(by: row)
-        guard let urlImage = presenter?.bankListUrlImage(by: row) else {
+        guard let selectedQuotaText = presenter?.quotaText(by: row) else {
             return
         }
-        setBankImage(with: urlImage)
-        presenter?.setSelectedBankId(by: row)
-        bankListSelectorTextField.resignFirstResponder()
+        quotaTextField.text = selectedQuotaText
+        presenter?.update(selectedQuotaText: selectedQuotaText)
+        quotaTextField.resignFirstResponder()
     }
-}
-
-// MARK: - Private utils
-extension BankSelectionViewController {
-    func setBankImage(with url: String) {
-        guard let url = URL(string: url) else {
-            return
-        }
-        do {
-            let data = try Data(contentsOf: url)
-            bankImageView.image = UIImage(data: data)
-        } catch {
-            print("Url Error")
-        }
-    }    
 }

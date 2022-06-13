@@ -42,6 +42,9 @@
 		9C319BBC28513CE30021CDD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C319BBB28513CE30021CDD7 /* AppDelegate.swift */; };
 		9C319BC528513CE40021CDD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C319BC428513CE40021CDD7 /* Assets.xcassets */; };
 		9C319BC828513CE40021CDD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C319BC628513CE40021CDD7 /* LaunchScreen.storyboard */; };
+		9C40A53F2857984F006DC74F /* PaymentResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40A53D2857984F006DC74F /* PaymentResumeViewController.swift */; };
+		9C40A5402857984F006DC74F /* PaymentResume.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C40A53E2857984F006DC74F /* PaymentResume.storyboard */; };
+		9C40A5422857A1EB006DC74F /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40A5412857A1EB006DC74F /* CGFloat+Extensions.swift */; };
 		9C571ECB2852E76D009ECF2A /* BankSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C571EC52852E76D009ECF2A /* BankSelection.storyboard */; };
 		9C571ECC2852E76D009ECF2A /* BankSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C571EC62852E76D009ECF2A /* BankSelectionPresenter.swift */; };
 		9C571ECD2852E76D009ECF2A /* BankSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C571EC72852E76D009ECF2A /* BankSelectionViewController.swift */; };
@@ -50,6 +53,16 @@
 		9C571ED02852E76D009ECF2A /* BankSelectionWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C571ECA2852E76D009ECF2A /* BankSelectionWireframe.swift */; };
 		9C571ED22852EA7E009ECF2A /* BankListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C571ED12852EA7E009ECF2A /* BankListManager.swift */; };
 		9C571ED52852EC8F009ECF2A /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C571ED42852EC8F009ECF2A /* Bank.swift */; };
+		C2D45B642854DD2100B952DC /* QuotaSelectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45B5E2854DD2000B952DC /* QuotaSelectionInteractor.swift */; };
+		C2D45B652854DD2100B952DC /* QuotaSelectionWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45B5F2854DD2000B952DC /* QuotaSelectionWireframe.swift */; };
+		C2D45B662854DD2100B952DC /* QuotaSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45B602854DD2000B952DC /* QuotaSelectionPresenter.swift */; };
+		C2D45B672854DD2100B952DC /* QuotaSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D45B612854DD2000B952DC /* QuotaSelection.storyboard */; };
+		C2D45B682854DD2100B952DC /* QuotaSelectionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45B622854DD2000B952DC /* QuotaSelectionProtocols.swift */; };
+		C2D45B692854DD2100B952DC /* QuotaSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45B632854DD2100B952DC /* QuotaSelectionViewController.swift */; };
+		C2D45B6B2854FA8600B952DC /* QuotaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45B6A2854FA8600B952DC /* QuotaManager.swift */; };
+		C2D45B6D2854FF8300B952DC /* Quota.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45B6C2854FF8300B952DC /* Quota.swift */; };
+		C2D45B762855234F00B952DC /* PaymentResumeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45B752855234F00B952DC /* PaymentResumeCell.swift */; };
+		C2D45B78285523B500B952DC /* PaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D45B77285523B500B952DC /* PaymentCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +105,9 @@
 		9C319BC428513CE40021CDD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C319BC728513CE40021CDD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C319BC928513CE40021CDD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C40A53D2857984F006DC74F /* PaymentResumeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentResumeViewController.swift; sourceTree = "<group>"; };
+		9C40A53E2857984F006DC74F /* PaymentResume.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PaymentResume.storyboard; sourceTree = "<group>"; };
+		9C40A5412857A1EB006DC74F /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		9C571EC52852E76D009ECF2A /* BankSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BankSelection.storyboard; sourceTree = "<group>"; };
 		9C571EC62852E76D009ECF2A /* BankSelectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSelectionPresenter.swift; sourceTree = "<group>"; };
 		9C571EC72852E76D009ECF2A /* BankSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSelectionViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +116,16 @@
 		9C571ECA2852E76D009ECF2A /* BankSelectionWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSelectionWireframe.swift; sourceTree = "<group>"; };
 		9C571ED12852EA7E009ECF2A /* BankListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListManager.swift; sourceTree = "<group>"; };
 		9C571ED42852EC8F009ECF2A /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		C2D45B5E2854DD2000B952DC /* QuotaSelectionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotaSelectionInteractor.swift; sourceTree = "<group>"; };
+		C2D45B5F2854DD2000B952DC /* QuotaSelectionWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotaSelectionWireframe.swift; sourceTree = "<group>"; };
+		C2D45B602854DD2000B952DC /* QuotaSelectionPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotaSelectionPresenter.swift; sourceTree = "<group>"; };
+		C2D45B612854DD2000B952DC /* QuotaSelection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QuotaSelection.storyboard; sourceTree = "<group>"; };
+		C2D45B622854DD2000B952DC /* QuotaSelectionProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotaSelectionProtocols.swift; sourceTree = "<group>"; };
+		C2D45B632854DD2100B952DC /* QuotaSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotaSelectionViewController.swift; sourceTree = "<group>"; };
+		C2D45B6A2854FA8600B952DC /* QuotaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotaManager.swift; sourceTree = "<group>"; };
+		C2D45B6C2854FF8300B952DC /* Quota.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quota.swift; sourceTree = "<group>"; };
+		C2D45B752855234F00B952DC /* PaymentResumeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResumeCell.swift; sourceTree = "<group>"; };
+		C2D45B77285523B500B952DC /* PaymentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,17 +148,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9C310D2828515CF200F2255F /* Coordinators */ = {
+		9C310D2828515CF200F2255F /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
 				9C310D2928515D0C00F2255F /* AppCoordinator.swift */,
 			);
-			path = Coordinators;
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		9C310D2B28515D8900F2255F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C2D45B6E28551D3800B952DC /* CustomModals */,
+				C2D45B5D2854DCBA00B952DC /* QuotaSelection */,
 				9C571EC42852E716009ECF2A /* BankSelection */,
 				9C310D4F2851675800F2255F /* PaymentMethod */,
 				9C310D3F28515FEC00F2255F /* Amount */,
@@ -194,6 +222,7 @@
 				9C310D6328516CF800F2255F /* String+Additions.swift */,
 				9C310D65285171C400F2255F /* UIViewController+Extensions.swift */,
 				9C310D67285174D500F2255F /* String+Constants.swift */,
+				9C40A5412857A1EB006DC74F /* CGFloat+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -242,6 +271,7 @@
 			children = (
 				9C571ED12852EA7E009ECF2A /* BankListManager.swift */,
 				9C310D6C285182E600F2255F /* PaymentMethodsManager.swift */,
+				C2D45B6A2854FA8600B952DC /* QuotaManager.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -251,6 +281,7 @@
 			children = (
 				9C571ED42852EC8F009ECF2A /* Bank.swift */,
 				9C310D732851885F00F2255F /* PaymentType.swift */,
+				C2D45B6C2854FF8300B952DC /* Quota.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -279,7 +310,7 @@
 				9C319BBB28513CE30021CDD7 /* AppDelegate.swift */,
 				9C319BC428513CE40021CDD7 /* Assets.xcassets */,
 				9C319BC928513CE40021CDD7 /* Info.plist */,
-				9C310D2828515CF200F2255F /* Coordinators */,
+				9C310D2828515CF200F2255F /* Coordinator */,
 				9C310D72285187E200F2255F /* Entities */,
 				9C310D69285182A900F2255F /* Managers */,
 				9C310D2B28515D8900F2255F /* Modules */,
@@ -309,6 +340,46 @@
 				07D476EAEBAD8F3954B43437 /* Pods-paymentApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C2D45B5D2854DCBA00B952DC /* QuotaSelection */ = {
+			isa = PBXGroup;
+			children = (
+				C2D45B612854DD2000B952DC /* QuotaSelection.storyboard */,
+				C2D45B5E2854DD2000B952DC /* QuotaSelectionInteractor.swift */,
+				C2D45B602854DD2000B952DC /* QuotaSelectionPresenter.swift */,
+				C2D45B622854DD2000B952DC /* QuotaSelectionProtocols.swift */,
+				C2D45B632854DD2100B952DC /* QuotaSelectionViewController.swift */,
+				C2D45B5F2854DD2000B952DC /* QuotaSelectionWireframe.swift */,
+			);
+			path = QuotaSelection;
+			sourceTree = "<group>";
+		};
+		C2D45B6E28551D3800B952DC /* CustomModals */ = {
+			isa = PBXGroup;
+			children = (
+				C2D45B6F28551F1900B952DC /* PaymentResume */,
+			);
+			path = CustomModals;
+			sourceTree = "<group>";
+		};
+		C2D45B6F28551F1900B952DC /* PaymentResume */ = {
+			isa = PBXGroup;
+			children = (
+				C2D45B742855233C00B952DC /* Cell */,
+				9C40A53E2857984F006DC74F /* PaymentResume.storyboard */,
+				9C40A53D2857984F006DC74F /* PaymentResumeViewController.swift */,
+			);
+			path = PaymentResume;
+			sourceTree = "<group>";
+		};
+		C2D45B742855233C00B952DC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C2D45B77285523B500B952DC /* PaymentCell.xib */,
+				C2D45B752855234F00B952DC /* PaymentResumeCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,7 +444,10 @@
 				9C319BC828513CE40021CDD7 /* LaunchScreen.storyboard in Resources */,
 				9C571ECB2852E76D009ECF2A /* BankSelection.storyboard in Resources */,
 				9C319BC528513CE40021CDD7 /* Assets.xcassets in Resources */,
+				9C40A5402857984F006DC74F /* PaymentResume.storyboard in Resources */,
 				9C310D562851676A00F2255F /* PaymentMethod.storyboard in Resources */,
+				C2D45B672854DD2100B952DC /* QuotaSelection.storyboard in Resources */,
+				C2D45B78285523B500B952DC /* PaymentCell.xib in Resources */,
 				9C310D3628515DE500F2255F /* Splash.storyboard in Resources */,
 				9C310D4628515FF600F2255F /* Amount.storyboard in Resources */,
 			);
@@ -429,16 +503,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C310D4B28515FF600F2255F /* AmountWireframe.swift in Sources */,
+				9C40A53F2857984F006DC74F /* PaymentResumeViewController.swift in Sources */,
 				9C310D5E285167BE00F2255F /* APIRouter.swift in Sources */,
 				9C310D60285167F500F2255F /* APIEnvironment.swift in Sources */,
 				9C571ECC2852E76D009ECF2A /* BankSelectionPresenter.swift in Sources */,
 				9C310D712851842200F2255F /* TypeAliases.swift in Sources */,
+				C2D45B682854DD2100B952DC /* QuotaSelectionProtocols.swift in Sources */,
 				9C571ECF2852E76D009ECF2A /* BankSelectionInteractor.swift in Sources */,
 				9C310D4728515FF600F2255F /* AmountPresenter.swift in Sources */,
+				C2D45B762855234F00B952DC /* PaymentResumeCell.swift in Sources */,
 				9C310D66285171C400F2255F /* UIViewController+Extensions.swift in Sources */,
 				9C310D4928515FF600F2255F /* AmountProtocols.swift in Sources */,
+				9C40A5422857A1EB006DC74F /* CGFloat+Extensions.swift in Sources */,
 				9C310D3928515DE500F2255F /* SplashProtocols.swift in Sources */,
 				9C310D5A2851676A00F2255F /* PaymentMethodInteractor.swift in Sources */,
+				C2D45B6B2854FA8600B952DC /* QuotaManager.swift in Sources */,
 				9C310D6F285183EC00F2255F /* API.swift in Sources */,
 				9C310D572851676A00F2255F /* PaymentMethodPresenter.swift in Sources */,
 				9C571ED22852EA7E009ECF2A /* BankListManager.swift in Sources */,
@@ -447,22 +526,27 @@
 				9C310D4E2851632300F2255F /* UIColor+AppColors.swift in Sources */,
 				9C319BBC28513CE30021CDD7 /* AppDelegate.swift in Sources */,
 				9C310D3B28515DE500F2255F /* SplashWireframe.swift in Sources */,
+				C2D45B662854DD2100B952DC /* QuotaSelectionPresenter.swift in Sources */,
+				C2D45B642854DD2100B952DC /* QuotaSelectionInteractor.swift in Sources */,
 				9C310D68285174D500F2255F /* String+Constants.swift in Sources */,
 				9C310D762851A72900F2255F /* CustomUITextField.swift in Sources */,
 				9C310D3728515DE500F2255F /* SplashPresenter.swift in Sources */,
 				9C310D4828515FF600F2255F /* AmountViewController.swift in Sources */,
+				C2D45B692854DD2100B952DC /* QuotaSelectionViewController.swift in Sources */,
 				9C310D6428516CF800F2255F /* String+Additions.swift in Sources */,
 				9C310D3E28515E3B00F2255F /* Storyboardable.swift in Sources */,
 				9C310D5B2851676A00F2255F /* PaymentMethodWireframe.swift in Sources */,
 				9C310D592851676A00F2255F /* PaymentMethodProtocols.swift in Sources */,
 				9C310D6D285182E600F2255F /* PaymentMethodsManager.swift in Sources */,
 				9C310D6228516CC100F2255F /* AllowedCharsTextField.swift in Sources */,
+				C2D45B6D2854FF8300B952DC /* Quota.swift in Sources */,
 				9C310D3828515DE500F2255F /* SplashViewController.swift in Sources */,
 				9C310D582851676A00F2255F /* PaymentMethodViewController.swift in Sources */,
 				9C310D4A28515FF600F2255F /* AmountInteractor.swift in Sources */,
 				9C571ED02852E76D009ECF2A /* BankSelectionWireframe.swift in Sources */,
 				9C571ED52852EC8F009ECF2A /* Bank.swift in Sources */,
 				9C571ECE2852E76D009ECF2A /* BankSelectionProtocols.swift in Sources */,
+				C2D45B652854DD2100B952DC /* QuotaSelectionWireframe.swift in Sources */,
 				9C571ECD2852E76D009ECF2A /* BankSelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

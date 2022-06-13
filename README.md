@@ -6,7 +6,7 @@ A Mercado libre (meli) diagnostic application.
 
 # How to use.
 
-1. Clone PaymentApp using the following:
+1. Clone PaymentApp using the following command line:
 ```
 git clone https://github.com/KevinJohann/PaymentApp.git
 ```

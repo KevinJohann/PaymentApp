@@ -6,20 +6,17 @@ A Mercado libre (meli) diagnostic application.
 
 # How to use.
 
-1.
-Clone PaymentApp using the following:
+1. Clone PaymentApp using the following:
 ```
 git clone https://github.com/KevinJohann/PaymentApp.git
 ```
 
-2.
-In your cloned project execute:
+2. In your cloned project execute:
 ```
 Pod install
 ```
 
-3.
-Open "paymentApp.xcworkspace" on project folder.
+3. Open "paymentApp.xcworkspace" on project folder.
 
 # Author
 

@@ -159,11 +159,11 @@
 		9C310D2B28515D8900F2255F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				C2D45B6E28551D3800B952DC /* CustomModals */,
-				C2D45B5D2854DCBA00B952DC /* QuotaSelection */,
-				9C571EC42852E716009ECF2A /* BankSelection */,
-				9C310D4F2851675800F2255F /* PaymentMethod */,
 				9C310D3F28515FEC00F2255F /* Amount */,
+				9C571EC42852E716009ECF2A /* BankSelection */,
+				C2D45B6E28551D3800B952DC /* CustomModals */,
+				9C310D4F2851675800F2255F /* PaymentMethod */,
+				C2D45B5D2854DCBA00B952DC /* QuotaSelection */,
 				9C310D2C28515D9900F2255F /* Splash */,
 			);
 			path = Modules;
@@ -218,11 +218,11 @@
 		9C310D4C2851631700F2255F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9C310D4D2851632300F2255F /* UIColor+AppColors.swift */,
-				9C310D6328516CF800F2255F /* String+Additions.swift */,
-				9C310D65285171C400F2255F /* UIViewController+Extensions.swift */,
-				9C310D67285174D500F2255F /* String+Constants.swift */,
 				9C40A5412857A1EB006DC74F /* CGFloat+Extensions.swift */,
+				9C310D6328516CF800F2255F /* String+Additions.swift */,
+				9C310D67285174D500F2255F /* String+Constants.swift */,
+				9C310D4D2851632300F2255F /* UIColor+AppColors.swift */,
+				9C310D65285171C400F2255F /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

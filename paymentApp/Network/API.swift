@@ -22,9 +22,9 @@ enum API {
 
         return AF
             .request(resource)
-            .responseString(completionHandler: {
-                print($0)
-            })
+//            .responseString(completionHandler: {
+//                print($0)
+//            })
             .responseDecodable(decoder: jsonDecoder) { (response: AFDataResponse<T>) in
 
                 if let statusCode = response.response?.statusCode {

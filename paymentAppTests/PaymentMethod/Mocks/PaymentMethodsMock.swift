@@ -27,10 +27,3 @@ enum PaymentMethodsMock {
         }
     }
 }
-//var id: String
-//var name: String
-//var paymentTypeId: String
-//var status: String
-//var secureThumbnail: String
-//var thumbnail: String
-//}

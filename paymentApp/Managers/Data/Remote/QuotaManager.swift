@@ -46,14 +46,16 @@ extension QuotaManager: QuotaManagerProtocol {
     func getQuota(with parameters: Parameterizable) {
         API.call(
             resource: APIRouter.quota(parameters),
-            onResponse: {
+            onResponse: { [weak self] in
+                guard let self = self else { return }
                 self.managerOutput?.onQuotaResponse()
             },
-            onSuccess: { (response: [Quota]) in
-                print(response)
+            onSuccess: { [weak self] (response: [Quota]) in
+                guard let self = self else { return }
                 self.managerOutput?.onQuotaSuccess(response: response)
             },
-            onFailure: {
+            onFailure: { [weak self] in
+                guard let self = self else { return }
                 self.managerOutput?.onQuotaFailure()
             }
         )

@@ -37,13 +37,16 @@ extension PaymentMethodsManager: PaymentMethodsManagerProtocol {
     func getPaymentMethods(with parameters: Parameterizable) {
         API.call(
             resource: APIRouter.paymentMethod(parameters),
-            onResponse: {
+            onResponse: { [weak self] in
+                guard let self = self else { return }
                 self.managerOutput?.onPaymentMethodsResponse()
             },
-            onSuccess: { (response: [PaymentType]) in
+            onSuccess: { [weak self] (response: [PaymentType]) in
+                guard let self = self else { return }
                 self.managerOutput?.onPaymentMethodsSuccess(response: response)
             },
-            onFailure: {
+            onFailure: { [weak self] in
+                guard let self = self else { return }
                 self.managerOutput?.onPaymentMethodsFailure()
             }
         )

@@ -42,13 +42,16 @@ extension BankListManager: BankListManagerProtocol {
     func getBankList(with parameters: Parameterizable) {
         API.call(
             resource: APIRouter.bankList(parameters),
-            onResponse: {
+            onResponse: { [weak self] in
+                guard let self = self else { return }
                 self.managerOutput?.onGetBankListResponse()
             },
-            onSuccess: { (response: [Bank]) in
+            onSuccess: { [weak self] (response: [Bank]) in
+                guard let self = self else { return }
                 self.managerOutput?.onGetBankListSuccess(response: response)
             },
-            onFailure: {
+            onFailure: { [weak self] in
+                guard let self = self else { return }
                 self.managerOutput?.onGetBankListFailure()
             }
         )
